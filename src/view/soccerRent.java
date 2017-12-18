@@ -57,7 +57,7 @@ public class soccerRent extends javax.swing.JFrame {
         memberPanel.setPreferredSize(new java.awt.Dimension(120, 120));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-user-folder-86.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-user-folder-86.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -91,7 +91,7 @@ public class soccerRent extends javax.swing.JFrame {
         hasilPanel.setPreferredSize(new java.awt.Dimension(120, 120));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-documents-86.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-documents-86.png"))); // NOI18N
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,7 +124,7 @@ public class soccerRent extends javax.swing.JFrame {
         jLabel7.setText("About");
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-help-86.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-help-86.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -148,7 +148,7 @@ public class soccerRent extends javax.swing.JFrame {
         tabelPanel.setPreferredSize(new java.awt.Dimension(120, 120));
 
         btnTabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnTabel.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-calendar-86.png")); // NOI18N
+        btnTabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-calendar-86.png"))); // NOI18N
         btnTabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTabelMouseClicked(evt);

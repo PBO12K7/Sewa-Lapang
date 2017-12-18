@@ -173,7 +173,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\Picture\Test\icons8-user-folder-40(1).png"/>
+                  <Image iconType="3" name="/view/asset/icons8-user-folder-40(1).png"/>
                 </Property>
               </Properties>
               <Events>
@@ -184,7 +184,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\Picture\Test\icons8-sort-left-40.png"/>
+                  <Image iconType="3" name="/view/asset/icons8-sort-left-40.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -195,7 +195,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\Picture\Test\icons8-documents-40.png"/>
+                  <Image iconType="3" name="/view/asset/icons8-documents-40.png"/>
                 </Property>
               </Properties>
               <Events>

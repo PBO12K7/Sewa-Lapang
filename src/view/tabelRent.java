@@ -92,7 +92,7 @@ public class tabelRent extends javax.swing.JFrame {
         });
 
         btnMember.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMember.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-user-folder-40(1).png")); // NOI18N
+        btnMember.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-user-folder-40(1).png"))); // NOI18N
         btnMember.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMemberMouseClicked(evt);
@@ -100,7 +100,7 @@ public class tabelRent extends javax.swing.JFrame {
         });
 
         btnBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnBack.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-sort-left-40.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-sort-left-40.png"))); // NOI18N
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBackMouseClicked(evt);
@@ -108,7 +108,7 @@ public class tabelRent extends javax.swing.JFrame {
         });
 
         btnHasil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnHasil.setIcon(new javax.swing.ImageIcon("D:\\Picture\\Test\\icons8-documents-40.png")); // NOI18N
+        btnHasil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-documents-40.png"))); // NOI18N
         btnHasil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnHasilMouseClicked(evt);
