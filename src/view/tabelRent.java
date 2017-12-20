@@ -16,10 +16,7 @@ public class tabelRent extends javax.swing.JFrame {
     /**
      * Creates new form tabel
      */
-    public tabelRent() {
-        initComponents();
-        panelAtas.setBackground(new Color(0,0,0,100));
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,17 +30,22 @@ public class tabelRent extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        panelAtas = new javax.swing.JPanel();
-        btnMember = new javax.swing.JLabel();
-        btnBack = new javax.swing.JLabel();
-        btnHasil = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sewa Lapangan Futsal");
+        setResizable(false);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(55, 55, 55));
         jPanel2.setPreferredSize(new java.awt.Dimension(640, 480));
@@ -82,76 +84,55 @@ public class tabelRent extends javax.swing.JFrame {
         jTable1.setPreferredSize(new java.awt.Dimension(640, 480));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, 240));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, 240));
 
-        panelAtas.setBackground(new java.awt.Color(162, 181, 202));
-        panelAtas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMemberMouseClicked(evt);
-            }
-        });
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 100, -1));
 
-        btnMember.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMember.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-user-folder-40(1).png"))); // NOI18N
-        btnMember.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMemberMouseClicked(evt);
-            }
-        });
-
-        btnBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-sort-left-40.png"))); // NOI18N
-        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBackMouseClicked(evt);
-            }
-        });
-
-        btnHasil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnHasil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/asset/icons8-documents-40.png"))); // NOI18N
-        btnHasil.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnHasilMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelAtasLayout = new javax.swing.GroupLayout(panelAtas);
-        panelAtas.setLayout(panelAtasLayout);
-        panelAtasLayout.setHorizontalGroup(
-            panelAtasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAtasLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnMember)
-                .addGap(18, 18, 18)
-                .addComponent(btnHasil)
-                .addContainerGap(484, Short.MAX_VALUE))
-        );
-        panelAtasLayout.setVerticalGroup(
-            panelAtasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAtasLayout.createSequentialGroup()
-                .addGroup(panelAtasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAtasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnMember, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnHasil, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(panelAtas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 50));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 100, -1));
-
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tanggal");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Jam");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, -1));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 110, -1));
+
+        jPanel1.setBackground(new java.awt.Color(162, 181, 202));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/icons8-left-24.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/icons8-data-sheet-filled-24 (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(273, 273, 273)
+                .addComponent(jLabel3)
+                .addContainerGap(319, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,24 +149,16 @@ public class tabelRent extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMemberMouseClicked
-        // TODO add your handling code here:
-        NewMember n = new NewMember ();
-        n.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnMemberMouseClicked
-
-    private void btnHasilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHasilMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnHasilMouseClicked
-
-    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
         soccerRent s = new soccerRent();
         s.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnBackMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -224,16 +197,15 @@ public class tabelRent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnBack;
-    private javax.swing.JLabel btnHasil;
-    private javax.swing.JLabel btnMember;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JPanel panelAtas;
     // End of variables declaration//GEN-END:variables
 }
