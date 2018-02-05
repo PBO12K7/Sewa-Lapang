@@ -37,6 +37,8 @@ public class Home extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         about1 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -51,7 +53,7 @@ public class Home extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         about = new javax.swing.JLabel();
         about2 = new javax.swing.JLabel();
@@ -59,7 +61,7 @@ public class Home extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1080, 710));
+        setTitle("SORENT");
         setMinimumSize(new java.awt.Dimension(1080, 710));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,11 +112,6 @@ public class Home extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-home-page-50.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
         icons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 76, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 245, 255));
@@ -136,7 +133,30 @@ public class Home extends javax.swing.JFrame {
         about1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about1.setForeground(new java.awt.Color(0, 245, 255));
         about1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-shutdown-15 (1).png"))); // NOI18N
+        about1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about1MouseClicked(evt);
+            }
+        });
         icons.add(about1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 680, -1, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-money-50.png"))); // NOI18N
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
+        icons.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-people-50.png"))); // NOI18N
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        icons.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         bodysemua.add(icons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 919));
 
@@ -214,7 +234,9 @@ public class Home extends javax.swing.JFrame {
             }
         });
         menu.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
-        menu.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 180));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/Untitled.png"))); // NOI18N
+        menu.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, -20, -1, -1));
 
         bodysemua.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 950, 620));
 
@@ -248,51 +270,68 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        // TODO add your handling code here:
+        MainSchedule n = new MainSchedule();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel15MouseClicked
+
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        // TODO add your handling code here: 
-     Pengeluaran n = new Pengeluaran();
-     n.setVisible(true);
-     this.setVisible(false);
+        // TODO add your handling code here:
+        MainPengeluaran n = new MainPengeluaran();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
-     Member n = new Member();
-     n.setVisible(true);
-     this.setVisible(false);
+        MainMember n = new MainMember();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
 
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+    private void about2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about2MouseClicked
         // TODO add your handling code here:
-     Schedule n = new Schedule();
-     n.setVisible(true);
-     this.setVisible(false);
-    }//GEN-LAST:event_jLabel15MouseClicked
+        About n = new About();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_about2MouseClicked
 
     private void aboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMouseClicked
         // TODO add your handling code here:
-     Help n = new Help();
-     n.setVisible(true);
-     this.setVisible(false);
+        Help n = new Help();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_aboutMouseClicked
 
-    private void about2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about2MouseClicked
-        // TODO add your handling code here:             
-     About n = new About();
-     n.setVisible(true);
-     this.setVisible(false);
-    }//GEN-LAST:event_about2MouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2MouseClicked
+        MainMember n = new MainMember();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+        MainPengeluaran n = new MainPengeluaran();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-     Schedule n = new Schedule();
-     n.setVisible(true);
-     this.setVisible(false);
+        MainSchedule n = new MainSchedule();
+        n.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void about1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about1MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_about1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -322,11 +361,7 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
-        });
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -343,6 +378,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

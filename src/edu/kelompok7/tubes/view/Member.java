@@ -5,18 +5,99 @@
  */
 package edu.kelompok7.tubes.view;
 
+import com.toedter.calendar.JDateChooser;
+import edu.kelompok7.tubes.controller.MemberController;
+import edu.kelompok7.tubes.database.TubesDatabase;
+import edu.kelompok7.tubes.entity.Members;
+import edu.kelompok7.tubes.error.ScheduleException;
+import edu.kelompok7.tubes.event.MemberListener;
+import edu.kelompok7.tubes.model.MemberModel;
+import edu.kelompok7.tubes.model.TabelMemberModel;
+import edu.kelompok7.tubes.service.MemberDao;
+import java.sql.SQLException;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 /**
  *
- * @author JARVIS PC
+ * @author Flow
  */
-public class Member extends javax.swing.JFrame {
+public class Member extends javax.swing.JPanel implements MemberListener, ListSelectionListener {
 
     /**
      * Creates new form Member
      */
+    private TabelMemberModel tabelModel;
+    private MemberModel model;
+    private MemberController controller;
+
     public Member() {
+        tabelModel = new TabelMemberModel();
         initComponents();
+        tableMember.setModel(tabelModel);
+
+        model = new MemberModel();
+        model.setListener(this);
+
+        controller = new MemberController();
+        controller.setModel(model);
+
+        tableMember.getSelectionModel().addListSelectionListener(this);
+
     }
+
+    public TabelMemberModel getTabelModel() {
+        return tabelModel;
+    }
+
+    public void setTabelModel(TabelMemberModel tabelModel) {
+        this.tabelModel = tabelModel;
+    }
+
+    public JTable getTableMember() {
+        return tableMember;
+    }
+
+    public void setTableMember(JTable tableMember) {
+        this.tableMember = tableMember;
+    }
+
+    public JTextArea getTxtAlamat() {
+        return txtAlamat;
+    }
+
+    public void setTxtAlamat(JTextArea txtAlamat) {
+        this.txtAlamat = txtAlamat;
+    }
+
+    public JTextField getTxtNama() {
+        return txtNama;
+    }
+
+    public void setTxtNama(JTextField txtNama) {
+        this.txtNama = txtNama;
+    }
+
+    public JTextField getTxtPembayaran() {
+        return txtPembayaran;
+    }
+
+    public void setTxtPembayaran(JTextField txtPembayaran) {
+        this.txtPembayaran = txtPembayaran;
+    }
+
+    public JDateChooser getTxtTanggal() {
+        return txtTanggal;
+    }
+
+    public void setTxtTanggal(JDateChooser txtTanggal) {
+        this.txtTanggal = txtTanggal;
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,47 +108,39 @@ public class Member extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bodysemua = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         icons = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         about1 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableMember = new javax.swing.JTable();
         menuMember = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        btnSelesai = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         txtNama = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAlamat = new javax.swing.JTextArea();
-        txtBayar = new javax.swing.JTextField();
-        txtTotal = new javax.swing.JTextField();
-        txtTahunAwal = new javax.swing.JTextField();
-        txtTahunAkhir = new javax.swing.JTextField();
-        cmbTanggalAwal = new javax.swing.JComboBox<>();
-        cmbBulanAwal = new javax.swing.JComboBox<>();
-        cmbBulanAkhir = new javax.swing.JComboBox<>();
-        cmbTanggalAkhir = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        about = new javax.swing.JLabel();
+        txtPembayaran = new javax.swing.JTextField();
+        txtTanggal = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         about2 = new javax.swing.JLabel();
+        about3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        bodysemua.setBackground(new java.awt.Color(55, 53, 66));
-        bodysemua.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         icons.setBackground(new java.awt.Color(67, 66, 80));
         icons.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,28 +189,51 @@ public class Member extends javax.swing.JFrame {
         });
         icons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 76, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(0, 245, 255));
-        jPanel1.setForeground(new java.awt.Color(0, 245, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 245, 255));
+        jPanel2.setForeground(new java.awt.Color(0, 245, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 40, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 14, Short.MAX_VALUE)
         );
 
-        icons.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
+        icons.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
 
         about1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about1.setForeground(new java.awt.Color(0, 245, 255));
         about1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-shutdown-15 (1).png"))); // NOI18N
-        icons.add(about1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, -1, -1));
+        about1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about1MouseClicked(evt);
+            }
+        });
+        icons.add(about1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, 20, -1));
 
-        bodysemua.add(icons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 919));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-people-50.png"))); // NOI18N
+        jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+        icons.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-money-50.png"))); // NOI18N
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+        icons.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+
+        jPanel1.add(icons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
 
         menu.setBackground(new java.awt.Color(55, 53, 66));
         menu.setForeground(new java.awt.Color(0, 245, 255));
@@ -147,20 +243,20 @@ public class Member extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 245, 255));
         jLabel9.setText("MEMBER");
 
-        jTable1.setBackground(new java.awt.Color(55, 53, 66));
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableMember.setBackground(new java.awt.Color(55, 53, 66));
+        tableMember.setForeground(new java.awt.Color(255, 255, 255));
+        tableMember.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nama", "Alamat", "Tanggal", "Pembayaran", "Total Pembayaran", "Waktu berlaku sampai "
+                "Nama", "Alamat", "Tanggal", "Pembayaran", "Total Pembayaran"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableMember);
 
         menuMember.setBackground(new java.awt.Color(55, 53, 66));
 
@@ -180,29 +276,18 @@ public class Member extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Pembayaran ");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Total Pembayaran ");
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("waktu berlaku sampai ");
-
-        btnSelesai.setText("Selesai!");
+        jButton1.setText("Selesai!");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         txtAlamat.setColumns(20);
         txtAlamat.setRows(5);
         jScrollPane2.setViewportView(txtAlamat);
 
-        txtBayar.setToolTipText("");
-
-        cmbTanggalAwal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        cmbBulanAwal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
-
-        cmbBulanAkhir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
-
-        cmbTanggalAkhir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        txtPembayaran.setToolTipText("");
 
         javax.swing.GroupLayout menuMemberLayout = new javax.swing.GroupLayout(menuMember);
         menuMember.setLayout(menuMemberLayout);
@@ -215,47 +300,23 @@ public class Member extends javax.swing.JFrame {
                     .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel11)
                         .addComponent(jLabel10)))
-                .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(menuMemberLayout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(cmbTanggalAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(16, 16, 16)
-                            .addComponent(cmbBulanAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtTahunAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12))))
-                .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(menuMemberLayout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(btnSelesai)
-                        .addContainerGap(101, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(20, 20, 20)
                         .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addGap(56, 56, 56))
-                                .addComponent(jLabel14))
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txtNama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(menuMemberLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTotal)
-                            .addGroup(menuMemberLayout.createSequentialGroup()
-                                .addComponent(cmbTanggalAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(cmbBulanAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTahunAkhir, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
-                            .addComponent(txtBayar))
-                        .addGap(31, 31, 31))))
+                        .addComponent(txtTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(74, 74, 74)
+                        .addComponent(txtPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(31, 31, 31))
         );
         menuMemberLayout.setVerticalGroup(
             menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,36 +331,53 @@ public class Member extends javax.swing.JFrame {
                         .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(menuMemberLayout.createSequentialGroup()
-                        .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(txtBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTahunAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel15)
-                                .addComponent(cmbTanggalAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cmbBulanAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(txtPembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuMemberLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addGap(62, 62, 62))
-                    .addGroup(menuMemberLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuMemberLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSelesai)
-                            .addGroup(menuMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtTahunAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cmbTanggalAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cmbBulanAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(62, 62, 62))))
         );
+
+        jButton2.setText("EDIT");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("HAPUS");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        about2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
+        about2.setForeground(new java.awt.Color(0, 245, 255));
+        about2.setText("About |");
+        about2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about2MouseClicked(evt);
+            }
+        });
+
+        about3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
+        about3.setForeground(new java.awt.Color(0, 245, 255));
+        about3.setText("Help");
+        about3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
@@ -316,9 +394,20 @@ public class Member extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(menuMember, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(511, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(menuLayout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addGap(37, 37, 37)
+                                .addComponent(jButton2))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(about2)
+                        .addGap(6, 6, 6)
+                        .addComponent(about3)
+                        .addGap(74, 74, 74)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,156 +417,176 @@ public class Member extends javax.swing.JFrame {
                         .addGap(352, 352, 352)
                         .addComponent(jLabel6))
                     .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel9)
+                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(menuLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(jLabel9))
+                            .addComponent(about2)
+                            .addComponent(about3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(menuMember, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(57, 57, 57)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(409, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        bodysemua.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 18, 1420, 910));
+        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 940, 720));
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(55, 53, 66));
-        jLabel8.setText("| Help");
-        bodysemua.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 460, 49, -1));
-
-        about.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
-        about.setForeground(new java.awt.Color(0, 245, 255));
-        about.setText("Help");
-        about.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aboutMouseClicked(evt);
-            }
-        });
-        bodysemua.add(about, new org.netbeans.lib.awtextra.AbsoluteConstraints(901, 0, -1, -1));
-
-        about2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
-        about2.setForeground(new java.awt.Color(0, 245, 255));
-        about2.setText("About |");
-        about2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                about2MouseClicked(evt);
-            }
-        });
-        bodysemua.add(about2, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 0, -1, -1));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bodysemua, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bodysemua, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-     Home n = new Home();
-     n.setVisible(true);
-     this.setVisible(false);
+        Home n = new Home();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void aboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-     Help n = new Help();
-     n.setVisible(true);
-     this.setVisible(false);
-    }//GEN-LAST:event_aboutMouseClicked
+        controller.insertMember(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        controller.updateMember(this);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        controller.deleteMember(this);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void about2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about2MouseClicked
         // TODO add your handling code here:
-             
-     About n = new About();
-     n.setVisible(true);
-     this.setVisible(false);
+        About n = new About();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_about2MouseClicked
+
+    private void about3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about3MouseClicked
+        // TODO add your handling code here:
+        Help n = new Help();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_about3MouseClicked
+
+    private void about1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about1MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_about1MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+        MainMember n = new MainMember();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        MainPengeluaran n = new MainPengeluaran();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-     Schedule n = new Schedule();
-     n.setVisible(true);
-     this.setVisible(false);
+        Schedule n = new Schedule();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Member.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Member.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Member.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Member.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Member().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel about;
     private javax.swing.JLabel about1;
     private javax.swing.JLabel about2;
-    private javax.swing.JPanel bodysemua;
-    private javax.swing.JButton btnSelesai;
-    private javax.swing.JComboBox<String> cmbBulanAkhir;
-    private javax.swing.JComboBox<String> cmbBulanAwal;
-    private javax.swing.JComboBox<String> cmbTanggalAkhir;
-    private javax.swing.JComboBox<String> cmbTanggalAwal;
+    private javax.swing.JLabel about3;
     private javax.swing.JPanel icons;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel menuMember;
+    private javax.swing.JTable tableMember;
     private javax.swing.JTextArea txtAlamat;
-    private javax.swing.JTextField txtBayar;
     private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtTahunAkhir;
-    private javax.swing.JTextField txtTahunAwal;
-    private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtPembayaran;
+    private com.toedter.calendar.JDateChooser txtTanggal;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void onInsert(Members member) {
+        tabelModel.add(member);
+    }
+
+    @Override
+    public void onChange(MemberModel model) {
+        txtNama.setText(model.getNama());
+        txtAlamat.setText(model.getAlamat());
+        txtTanggal.setDate(model.getTanggal());
+        txtPembayaran.setText(String.valueOf(model.getPembayaran()));
+
+    }
+
+    @Override
+    public void onDelete() {
+        int index = tableMember.getSelectedRow();
+        tabelModel.remove(index);
+    }
+
+    @Override
+    public void onUpdate(Members member) {
+        int index = tableMember.getSelectedRow();
+        tabelModel.set(index, member);
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        try {
+            Members model = tabelModel.get(tableMember.getSelectedRow());
+            txtNama.setText(model.getNama());
+            txtAlamat.setText(model.getAlamat());
+            txtTanggal.setDate(model.getTanggal());
+            txtPembayaran.setText(String.valueOf(model.getPembayaran()));
+
+        } catch (IndexOutOfBoundsException exception) {
+        }
+    }
+
+    public void loadDatabase() throws SQLException, ScheduleException {
+        MemberDao dao = TubesDatabase.getMemberDao();
+        tabelModel.setList(dao.selectAllMember());
+    }
 }

@@ -36,6 +36,8 @@ public class Help extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         about1 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -62,11 +64,6 @@ public class Help extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-calendar-50.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -121,7 +118,30 @@ public class Help extends javax.swing.JFrame {
         about1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about1.setForeground(new java.awt.Color(0, 245, 255));
         about1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-shutdown-15 (1).png"))); // NOI18N
+        about1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about1MouseClicked(evt);
+            }
+        });
         icons.add(about1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 690, -1, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-money-50.png"))); // NOI18N
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+        icons.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-people-50.png"))); // NOI18N
+        jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+        icons.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         bodysemua.add(icons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 919));
 
@@ -168,48 +188,48 @@ public class Help extends javax.swing.JFrame {
             .addGroup(menuLayout.createSequentialGroup()
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuLayout.createSequentialGroup()
+                        .addGap(430, 430, 430)
+                        .addComponent(jLabel5))
+                    .addGroup(menuLayout.createSequentialGroup()
                         .addGap(266, 266, 266)
                         .addComponent(jLabel7))
                     .addGroup(menuLayout.createSequentialGroup()
                         .addGap(401, 401, 401)
                         .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(menuLayout.createSequentialGroup()
-                                .addGap(117, 117, 117)
-                                .addComponent(jLabel6))
-                            .addComponent(jLabel13))
-                        .addGap(1058, 1058, 1058)
-                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menuLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel16))
-                            .addComponent(jLabel15)))
+                                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(menuLayout.createSequentialGroup()
+                                        .addGap(117, 117, 117)
+                                        .addComponent(jLabel6))
+                                    .addComponent(jLabel13))
+                                .addGap(1058, 1058, 1058)
+                                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(menuLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel16))
+                                    .addComponent(jLabel15)))
+                            .addComponent(jLabel9)))
                     .addGroup(menuLayout.createSequentialGroup()
                         .addGap(426, 426, 426)
                         .addComponent(jLabel14))
                     .addGroup(menuLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel17))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(414, 414, 414)
-                        .addComponent(jLabel9))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(444, 444, 444)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel17)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel5)
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel5)
-                        .addGap(81, 81, 81)
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel9)
                         .addGap(49, 49, 49)
                         .addComponent(jLabel13))
                     .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(225, 225, 225)
+                        .addGap(163, 163, 163)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel16)))
@@ -242,11 +262,6 @@ public class Help extends javax.swing.JFrame {
         about2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about2.setForeground(new java.awt.Color(0, 245, 255));
         about2.setText("About |");
-        about2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                about2MouseClicked(evt);
-            }
-        });
         bodysemua.add(about2, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -263,26 +278,32 @@ public class Help extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        MainPengeluaran n = new MainPengeluaran();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+        MainMember n = new MainMember();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel19MouseClicked
+
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-     Home n = new Home();
-     n.setVisible(true);
-     this.setVisible(false);
+        MainSchedule n = new MainSchedule();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void about2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about2MouseClicked
-        // TODO add your handling code here:        
-     About n = new About();
-     n.setVisible(true);
-     this.setVisible(false);
-    }//GEN-LAST:event_about2MouseClicked
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void about1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about1MouseClicked
         // TODO add your handling code here:
-     Schedule n = new Schedule();
-     n.setVisible(true);
-     this.setVisible(false);
-    }//GEN-LAST:event_jLabel3MouseClicked
+        this.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_about1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -312,11 +333,7 @@ public class Help extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Help().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -331,6 +348,8 @@ public class Help extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
