@@ -77,6 +77,11 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-calendar-50.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -97,16 +102,19 @@ public class Home extends javax.swing.JFrame {
 
         icons.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 132, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\JARVIS PC\\Downloads\\tubes\\icons8-money-50.png")); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         icons.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 478, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\JARVIS PC\\Downloads\\tubes\\icons8-people-50.png")); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         icons.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 343, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-home-page-50.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         icons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 76, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 245, 255));
@@ -184,16 +192,28 @@ public class Home extends javax.swing.JFrame {
         menu.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 546, 316, 10));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-money-65.png"))); // NOI18N
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
         menu.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-calendar-65.png"))); // NOI18N
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
         menu.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-people-65.png"))); // NOI18N
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
         menu.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\JARVIS PC\\Downloads\\tubes\\Untitled.png")); // NOI18N
-        jLabel16.setText("jLabel16");
         menu.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 490, 180));
 
         bodysemua.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 950, 620));
@@ -206,17 +226,73 @@ public class Home extends javax.swing.JFrame {
         about.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about.setForeground(new java.awt.Color(0, 245, 255));
         about.setText("Help");
+        about.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutMouseClicked(evt);
+            }
+        });
         bodysemua.add(about, new org.netbeans.lib.awtextra.AbsoluteConstraints(901, 0, -1, -1));
 
         about2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about2.setForeground(new java.awt.Color(0, 245, 255));
         about2.setText("About |");
+        about2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about2MouseClicked(evt);
+            }
+        });
         bodysemua.add(about2, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 0, -1, -1));
 
         getContentPane().add(bodysemua, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here: 
+     Pengeluaran n = new Pengeluaran();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+     Member n = new Member();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        // TODO add your handling code here:
+     Schedule n = new Schedule();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void aboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMouseClicked
+        // TODO add your handling code here:
+     Help n = new Help();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_aboutMouseClicked
+
+    private void about2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about2MouseClicked
+        // TODO add your handling code here:             
+     About n = new About();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_about2MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+     Schedule n = new Schedule();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments

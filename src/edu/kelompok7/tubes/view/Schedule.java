@@ -70,6 +70,7 @@ public class Schedule extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bodysemua.setBackground(new java.awt.Color(55, 53, 66));
+        bodysemua.setForeground(new java.awt.Color(255, 255, 255));
         bodysemua.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         icons.setBackground(new java.awt.Color(67, 66, 80));
@@ -78,6 +79,11 @@ public class Schedule extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-calendar-50.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -96,14 +102,17 @@ public class Schedule extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\JARVIS PC\\Downloads\\tubes\\icons8-money-50.png")); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\JARVIS PC\\Downloads\\tubes\\icons8-people-50.png")); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok7/tubes/asset/icons8-home-page-50.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         about1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about1.setForeground(new java.awt.Color(0, 245, 255));
@@ -233,15 +242,17 @@ public class Schedule extends javax.swing.JFrame {
         });
         menu.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 118, 156, -1));
 
+        jRadioButton1.setBackground(new java.awt.Color(67, 66, 80));
         DpBooking.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(67, 66, 80));
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Cash");
         menu.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 213, -1, -1));
 
+        jRadioButton2.setBackground(new java.awt.Color(67, 66, 80));
         DpBooking.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(67, 66, 80));
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Sudah");
         menu.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 213, -1, -1));
 
@@ -367,11 +378,21 @@ public class Schedule extends javax.swing.JFrame {
         about.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about.setForeground(new java.awt.Color(0, 245, 255));
         about.setText("Help");
+        about.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutMouseClicked(evt);
+            }
+        });
         bodysemua.add(about, new org.netbeans.lib.awtextra.AbsoluteConstraints(937, 0, -1, -1));
 
         about2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 11)); // NOI18N
         about2.setForeground(new java.awt.Color(0, 245, 255));
         about2.setText("About |");
+        about2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                about2MouseClicked(evt);
+            }
+        });
         bodysemua.add(about2, new org.netbeans.lib.awtextra.AbsoluteConstraints(893, 0, -1, -1));
 
         getContentPane().add(bodysemua, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 710));
@@ -406,6 +427,34 @@ public class Schedule extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+     Home n = new Home();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void aboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMouseClicked
+        // TODO add your handling code here:
+     Help n = new Help();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_aboutMouseClicked
+
+    private void about2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_about2MouseClicked
+        // TODO add your handling code here:             
+     About n = new About();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_about2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+     Schedule n = new Schedule();
+     n.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
